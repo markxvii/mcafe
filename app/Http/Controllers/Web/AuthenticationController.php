@@ -10,6 +10,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthenticationController extends Controller
 {
+
+    //此处是github登录页面点击后跳转的方法，会跳到github，待用户输入完毕后会跳转到下面的方法内（github回调方法）
     public function getSocialRedirect($account)
     {
         try {
@@ -38,6 +40,6 @@ class AuthenticationController extends Controller
             $user = $newUser;
         }
         Auth::login($user);
-        return redirect('/');
+        return redirect('/#/home');
     }
 }

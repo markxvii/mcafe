@@ -23,3 +23,9 @@ Route::get( '/auth/{social}', 'Web\AuthenticationController@getSocialRedirect' )
 
 Route::get( '/auth/{social}/callback', 'Web\AuthenticationController@getSocialCallback' )
       ->middleware('guest');
+
+Route::get('geocode', function () {
+    return \App\Utilties\GaodeMaps::geocodeAddress('天城路1号', '杭州', '浙江');
+});
+
+Route::get('/cafe/{id}', 'API\CafesController@getCafe');
